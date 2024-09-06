@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: akri
+  namespace: argo-cd
+spec:
+  project: spof-cluster
+  sources:
+    - chart: akri
+      repoURL: https://project-akri.github.io/akri/
+      targetRevision: v0.12.20
+      helm:
+        releaseName: akri
+        values: |
+          akri:
+            kubernetesDistro: k3s
+            udev:
+              discovery:
+                enabled: true
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: akri
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
