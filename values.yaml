@@ -1,0 +1,7 @@
+kubernetesDistro: k3s
+udev:
+  discovery:
+    enabled: true
+agent:
+  securityContext:
+    allowPrivilegeEscalation: false

@@ -11,12 +11,14 @@ spec:
       targetRevision: v0.12.20
       helm:
         releaseName: akri
-        values: |
-          akri:
-            kubernetesDistro: k3s
-            udev:
-              discovery:
-                enabled: true
+        valueFiles:
+          - $values/values.yaml
+    - repoURL: "https://github.com/SP0Fs/akri-k8s.git"
+      targetRevision: HEAD
+      ref: values
+    - repoURL: "https://github.com/SP0Fs/akri-k8s.git"
+      targetRevision: HEAD
+      path: resources
   destination:
     server: "https://kubernetes.default.svc"
     namespace: akri
