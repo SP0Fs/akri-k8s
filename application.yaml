@@ -8,7 +8,7 @@ spec:
   sources:
     - chart: akri
       repoURL: https://project-akri.github.io/akri/
-      targetRevision: v0.12.20
+      targetRevision: v0.13.8
       helm:
         releaseName: akri
         valueFiles:
