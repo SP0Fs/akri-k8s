@@ -1,4 +1,5 @@
 kubernetesDistro: k3s
+useLatestContainers: true
 udev:
   discovery:
     enabled: true
